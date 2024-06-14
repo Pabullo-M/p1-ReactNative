@@ -60,7 +60,34 @@ export const styles = StyleSheet.create({
         fontWeight:"400",
         fontSize:18,
       },
-    
+      gradient2: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'flex-start',
+        alignItems: 'center',
+        padding: 10,
+        paddingTop:100
+      },
+      input: {
+        width: '80%',
+        height: 40,
+        backgroundColor:'white',
+        borderWidth: 1,
+        borderColor: '#ccc',
+        borderRadius: 20,
+        paddingHorizontal: 10,
+        marginBottom: 10,
+      },
+      itemContainer: {
+        width: '30%',
+        alignItems: 'center',
+        marginVertical: 10,
+      },
+      imgPoke: {
+        width: 80,
+        height: 80,
+        resizeMode: 'contain',
+      },
 
 
 })
