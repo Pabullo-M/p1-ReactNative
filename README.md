@@ -12,3 +12,4 @@ Recompensa:
 3,0 nota final.
 
 
+![image](https://github.com/Pabullo-M/p1-ReactNative/assets/162758805/d7c4f29f-6e2c-4ef2-af70-b42d85ecfead)
