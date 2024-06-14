@@ -59,8 +59,8 @@ export const styles = StyleSheet.create({
         color: '#FFF',
         fontWeight:"400",
         fontSize:18,
-      }
+      },
+    
 
-      
 
 })
