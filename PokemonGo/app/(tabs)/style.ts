@@ -91,9 +91,24 @@ export const styles = StyleSheet.create({
         width: 90,
         height: 90,
         resizeMode: 'contain',
+        zIndex:-1
       },
-      divCard:{
-      }
+      containerTabTop:{
+        flexDirection:"row",
+        textAlign: 'center',
 
+        
+      },
+      titulosTexto:{
+        color: '#3F6463',
+        fontWeight: '700',
+        paddingRight: 30,
+        left: 13 ,
+        bottom: 25
+      },
+      estrela:{
+        position: "absolute",
+        zIndex:1,
+      }
 
 })

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Image, TextInput, FlatList, StyleSheet, Alert } from 'react-native';
+import { View, Text, Image, TextInput, FlatList, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios';
 import { styles } from './style';
+import { Ionicons } from '@expo/vector-icons';
 
 interface PokemonImage {
   id: number;
   name: string;
   front_default: string;
+  favorito:boolean;
 }
 
 export default function TelaPoke() {
@@ -15,6 +17,7 @@ export default function TelaPoke() {
   const [pokemonImages, setPokemonImages] = useState<PokemonImage[]>([]);
   const [itemPesquisa, setItemPesquisa] = useState('');
   const [pesquisa, setPesquisa] = useState<PokemonImage[]>([]);
+  const [favoritado, setFavoritado] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -30,9 +33,9 @@ export default function TelaPoke() {
     }
   };
 
-  const getNomeImg = async (results) => {
+  const getNomeImg = async (results: any) => {
     try {
-      const requests = results.map(async (item) => {
+      const requests = results.map(async (item: any) => {
         const response = await axios.get(`https://pokeapi.co/api/v2/pokemon-form/${item.name}`);
         const pokemonData = response.data;
         const { id, name, sprites } = pokemonData;
@@ -60,11 +63,22 @@ export default function TelaPoke() {
       console.error('Erro ao buscar os dados do Pokémon:', error);
     }
   };
+  const handlePress = (i: number) => {
+    setPokemonImages((itens) =>
+      itens.map((item: PokemonImage, index) =>
+        index === i ? { ...item, favorito: !item.favorito} : item
+      )
+    );}
   return (
     <LinearGradient
       colors={['#FFFFFF', '#EBFDE0']}
       style={styles.gradient2}
     >
+      <View style={styles.containerTabTop}>
+        <Text style={styles.titulosTexto}>TAGS</Text>
+        <Text style={styles.titulosTexto}>POKÉMONS</Text>
+        <Text style={styles.titulosTexto}>EGGS</Text>
+      </View>
       <TextInput
         style={styles.input}
         placeholder="Buscar Pokémon..."
@@ -72,11 +86,16 @@ export default function TelaPoke() {
         onChangeText={(text) => setItemPesquisa(text)}
         onSubmitEditing={handlePesquisa}
       />
-      <View style={styles.divCard}>
+      
+      <View>
       <FlatList
         data={itemPesquisa != '' ? pesquisa : pokemonImages}
-        renderItem={({ item }) => (
+        renderItem={({ item,index }) => (
           <View style={styles.itemContainer}>
+            <Text>Nr. {item.id}</Text>
+            <TouchableOpacity onPress={()=>{handlePress(index)}}>
+              <Ionicons style={styles.estrela} name={item.favorito ? 'star' : 'star-outline'} size={20} color={item.favorito ? 'gold' : 'gold'} />
+              </TouchableOpacity>
             <Image
               style={styles.imgPoke}
               source={{ uri: item.front_default }}

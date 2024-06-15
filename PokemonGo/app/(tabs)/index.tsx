@@ -3,7 +3,6 @@ import logo from '../../assets/images/logo.png'
 import google from '../../assets/images/google.png'
 import { LinearGradient } from 'expo-linear-gradient';
 import { styles } from './style';
-import { NavigationProp } from '@react-navigation/native';
 import { useNavigation } from 'expo-router';
 
 
