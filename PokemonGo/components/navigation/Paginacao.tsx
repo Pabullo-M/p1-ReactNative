@@ -10,8 +10,8 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="TelaPoke" component={Tela} />
+        <Stack.Screen name="Home" />
+        <Stack.Screen name="TelaPoke"/>
       </Stack.Navigator>
     </NavigationContainer>
   );

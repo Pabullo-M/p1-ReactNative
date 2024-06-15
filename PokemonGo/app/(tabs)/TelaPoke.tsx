@@ -72,6 +72,7 @@ export default function TelaPoke() {
         onChangeText={(text) => setItemPesquisa(text)}
         onSubmitEditing={handlePesquisa}
       />
+      <View style={styles.divCard}>
       <FlatList
         data={itemPesquisa != '' ? pesquisa : pokemonImages}
         renderItem={({ item }) => (
@@ -86,6 +87,7 @@ export default function TelaPoke() {
         keyExtractor={(item) => item.id.toString()}
         numColumns={3}
       />
+        </View>
     </LinearGradient>
   );
 }

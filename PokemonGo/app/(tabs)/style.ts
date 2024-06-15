@@ -66,7 +66,11 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         padding: 10,
-        paddingTop:100
+        paddingTop:100,
+        borderLeftColor:'green',
+        borderLeftWidth:5,
+        borderRightColor:'green',
+        borderRightWidth:5
       },
       input: {
         width: '80%',
@@ -79,15 +83,17 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
       },
       itemContainer: {
-        width: '30%',
+        paddingRight:20,
         alignItems: 'center',
         marginVertical: 10,
       },
       imgPoke: {
-        width: 80,
-        height: 80,
+        width: 90,
+        height: 90,
         resizeMode: 'contain',
       },
+      divCard:{
+      }
 
 
 })

@@ -1,4 +1,4 @@
-import {View, Image, StyleSheet, Platform, Text, TouchableOpacity } from 'react-native';
+import {View, Image, StyleSheet, Platform, Text, TouchableOpacity, StatusBar } from 'react-native';
 import logo from '../../assets/images/logo.png'
 import google from '../../assets/images/google.png'
 import { LinearGradient } from 'expo-linear-gradient';
@@ -11,6 +11,7 @@ const HomeScreen: React.FC = () => {
   const navigation = useNavigation();
   return (
     <View style={styles.container}>
+    <StatusBar hidden={false} />
       <LinearGradient colors={['#FFFFFF','#EBFDE0']}
         style={styles.gradient}>
         <Image 
@@ -23,7 +24,7 @@ const HomeScreen: React.FC = () => {
         <TouchableOpacity
           onPress={()=>{navigation.navigate('TelaPoke')}}
           style={styles.googleButton}
-          >
+        >
           <Image 
             source={google}
             style={styles.googleLogo}
@@ -31,7 +32,10 @@ const HomeScreen: React.FC = () => {
             />
           <Text style={styles.textoGoogle}>GOOGLE</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.botaoLog}>
+        <TouchableOpacity 
+          onPress={()=>{navigation.navigate('TelaPoke')}}
+          style={styles.botaoLog}
+        >
           <Text style={styles.textoLog}>POKEMON TRAINER CLUB</Text>
         </TouchableOpacity>
           
