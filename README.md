@@ -13,5 +13,5 @@ Recompensa:
 
 
 ![image](https://github.com/Pabullo-M/p1-ReactNative/assets/162758805/d7c4f29f-6e2c-4ef2-af70-b42d85ecfead)
+![image](https://github.com/Pabullo-M/p1-ReactNative/assets/162758805/aff713a8-6490-4be1-88e8-3b9a31f23566)
 
-![image](https://github.com/Pabullo-M/p1-ReactNative/assets/162758805/86fd9783-ba05-4193-a7ad-f9c70f0638df)
