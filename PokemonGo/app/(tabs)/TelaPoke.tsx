@@ -22,6 +22,9 @@ export default function TelaPoke() {
   useEffect(() => {
     fetchData();
   }, []);
+  useEffect(()=>{
+    setPesquisa([])
+  },[itemPesquisa])
 
   const fetchData = async () => {
     try {
