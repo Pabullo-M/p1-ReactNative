@@ -119,12 +119,12 @@ export const styles = StyleSheet.create({
       },
       cpButton:{
         position:'absolute',
-        bottom: 50,
+        bottom: 15,
         right: 10
       },
       xButton:{
         position:'absolute',
-        bottom: 15,
+        bottom: 20,
       }
 
 })
