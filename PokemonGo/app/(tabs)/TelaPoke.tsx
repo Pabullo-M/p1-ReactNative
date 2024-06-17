@@ -23,7 +23,7 @@ export default function TelaPoke() {
     fetchData();
   }, []);
   useEffect(()=>{
-    setPesquisa([])
+    setPesquisa()
   },[itemPesquisa])
 
   const fetchData = async () => {
@@ -66,11 +66,18 @@ export default function TelaPoke() {
     }
   };
   const handlePress = (i: number) => {
+    if(pesquisa){
+      setPesquisa((itens) =>
+        itens.map((item: PokemonImage, index) =>
+          index === i ? { ...item, favorito: !item.favorito} : item
+        )
+      )
+    }else{
     setPokemonImages((itens) =>
       itens.map((item: PokemonImage, index) =>
         index === i ? { ...item, favorito: !item.favorito} : item
       )
-    );}
+    );}}
   return (
     <LinearGradient
       colors={['#FFFFFF', '#EBFDE0']}
