@@ -4,6 +4,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import axios from 'axios';
 import { styles } from './style';
 import { Ionicons } from '@expo/vector-icons';
+import cpButton from '@/assets/images/botaoCp.png'
+import xButton from '@/assets/images/x.png'
 
 interface PokemonImage {
   id: number;
@@ -13,11 +15,9 @@ interface PokemonImage {
 }
 
 export default function TelaPoke() {
-  const [data, setData] = useState([]);
   const [pokemonImages, setPokemonImages] = useState<PokemonImage[]>([]);
   const [itemPesquisa, setItemPesquisa] = useState('');
   const [pesquisa, setPesquisa] = useState<PokemonImage[]>([]);
-  const [favoritado, setFavoritado] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -26,7 +26,6 @@ export default function TelaPoke() {
   const fetchData = async () => {
     try {
       const response = await axios.get('https://pokeapi.co/api/v2/pokemon-form');
-      setData(response.data.results);
       getNomeImg(response.data.results);
     } catch (error) {
       console.error('Erro ao buscar os dados:', error);
@@ -56,7 +55,7 @@ export default function TelaPoke() {
       const pokemonData = response.data;
       const { id, name, sprites } = pokemonData;
       const { front_default } = sprites;
-      const result = { id, name, front_default };
+      const result = { id, name, front_default};
       setPesquisa([result]);
     } catch (error) {
       Alert.alert('Pokémon não encontrado');
@@ -79,6 +78,10 @@ export default function TelaPoke() {
         <Text style={styles.titulosTexto}>POKÉMONS</Text>
         <Text style={styles.titulosTexto}>EGGS</Text>
       </View>
+      <View style={styles.containerTabTop}>
+        <Text style={styles.subTexto}>{pokemonImages.length}/20</Text>
+        <Text style={styles.subTexto}>08/10</Text>
+      </View>
       <TextInput
         style={styles.input}
         placeholder="Buscar Pokémon..."
@@ -87,7 +90,7 @@ export default function TelaPoke() {
         onSubmitEditing={handlePesquisa}
       />
       
-      <View>
+
       <FlatList
         data={itemPesquisa != '' ? pesquisa : pokemonImages}
         renderItem={({ item,index }) => (
@@ -106,7 +109,16 @@ export default function TelaPoke() {
         keyExtractor={(item) => item.id.toString()}
         numColumns={3}
       />
-        </View>
+      <TouchableOpacity style={styles.cpButton}>
+          <Image 
+            source={cpButton}
+          />
+      </TouchableOpacity>
+      <TouchableOpacity style={styles.xButton}>
+          <Image 
+            source={xButton}
+          />
+      </TouchableOpacity>
     </LinearGradient>
   );
 }

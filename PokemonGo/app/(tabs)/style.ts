@@ -66,7 +66,7 @@ export const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         padding: 10,
-        paddingTop:100,
+        paddingTop:60,
         borderLeftColor:'green',
         borderLeftWidth:5,
         borderRightColor:'green',
@@ -86,17 +86,17 @@ export const styles = StyleSheet.create({
         paddingRight:20,
         alignItems: 'center',
         marginVertical: 10,
+        bottom: 15,
       },
       imgPoke: {
-        width: 90,
-        height: 90,
+        width: 100,
+        height: 100,
         resizeMode: 'contain',
         zIndex:-1
       },
       containerTabTop:{
         flexDirection:"row",
         textAlign: 'center',
-
         
       },
       titulosTexto:{
@@ -104,11 +104,27 @@ export const styles = StyleSheet.create({
         fontWeight: '700',
         paddingRight: 30,
         left: 13 ,
-        bottom: 25
+        bottom: 15
       },
       estrela:{
         position: "absolute",
         zIndex:1,
+      },
+      subTexto:{
+        color: '#3F6463',
+        fontWeight: '700',
+        paddingRight: 50,
+        left: 67 ,
+        bottom: 15
+      },
+      cpButton:{
+        position:'absolute',
+        bottom: 50,
+        right: 10
+      },
+      xButton:{
+        position:'absolute',
+        bottom: 15,
       }
 
 })
