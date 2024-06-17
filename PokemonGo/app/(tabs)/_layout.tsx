@@ -24,11 +24,11 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="TelaPoke"
         options={{
-          title: 'Explore',
+          title: 'Pokémons',
           tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+            <TabBarIcon name={focused ? 'logo-github' : 'logo-github'} color={color} />
           ),
         }}
       />
